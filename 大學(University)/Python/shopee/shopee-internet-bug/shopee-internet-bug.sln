@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "shopee-internet-bug", "shopee-internet-bug\shopee-internet-bug.pyproj", "{2EF4B4F8-8DD6-4A48-AF73-A188A33B718B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2EF4B4F8-8DD6-4A48-AF73-A188A33B718B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF4B4F8-8DD6-4A48-AF73-A188A33B718B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C90A20E0-67A5-4C46-B3B4-666A92E5907A}
+	EndGlobalSection
+EndGlobal
