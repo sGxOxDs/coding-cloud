@@ -1,0 +1,9 @@
+UVa problems Involving C++ STL map:
+UVa 10226 - Hardwood Species		DONE
+UVa 10282 - Babelfish			DONE
+UVa 11286 – Conformity			DONE
+
+UVa problems Involving C++ STL set:
+UVa 978 - Lemmings Battle!		DONE
+UVa 11136 - Hoax or what		DONE
+UVa 11572 - Unique Snowflakes		DONE

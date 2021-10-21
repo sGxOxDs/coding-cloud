@@ -1,0 +1,9 @@
+DFS:
+UVa 00168 - Theseus and the Minotaur	AC§Û§¹
+UVa 11906 - Knight in a War Grid
+UVa 12442 - Forwarding Emails
+
+Topological Sort:
+UVa 00200 - Rare Order
+UVa 00872 - Ordering
+UVa 10305 - Ordering Tasks

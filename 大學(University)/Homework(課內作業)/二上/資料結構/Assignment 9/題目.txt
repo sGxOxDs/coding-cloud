@@ -1,0 +1,8 @@
+Finding Biconnected / Bridge Connected Components:
+UVa 1108 - Mining Your Own Business
+UVa 10972 - RevolC FaeLoN
+
+Finding Strongly Connected Components:
+UVa 247 - Calling Circles
+UVa 11504 - Dominos
+UVa 11838 - Come and Go

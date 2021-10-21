@@ -1,0 +1,9 @@
+UVa problems Involving C++ STL stack:
+UVa 514 - Rails					AC
+UVa 732 - Anagrams by Stack		AC
+UVa 1062 – Containers			AC 2sol
+
+UVa problems Involving C++ STL queue:
+UVa 10172 - The Lonesome Cargo Distributor	AC
+UVa 10901 - Ferry Loading III 				AC
+UVa 11034 - Ferry Loading IV				AC

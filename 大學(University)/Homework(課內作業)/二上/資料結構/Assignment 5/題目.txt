@@ -1,0 +1,8 @@
+UVa problems Involving C++ STL list and deque:
+UVa 11988 - Broken Keyboard (a.k.a. Beiju Text)
+UVa 12207 - That is Your Queue
+
+UVa problems Involving C++ STL priority_queue:
+UVa 1203 - Argus
+UVa 10954 - Add All
+UVa 11995 - I Can Guess the Data Structure!

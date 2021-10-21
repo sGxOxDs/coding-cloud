@@ -1,0 +1,8 @@
+Finding Articulation Points / Bridges:
+UVa 00315 - Network				AC
+UVa 00796 - Critical Links		AC
+UVa 10765 - Doves and Bombs		AC
+
+Finding Biconnected / Bridge Connected Components:
+UVa 1108 - Mining Your Own Business		WA(我設計的節點編號必須連續 GG)
+UVa 10972 - RevolC FaeLoN
