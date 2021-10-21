@@ -1,0 +1,10 @@
+sure:
+減法溢位
+unsign
+減進同步
+
+maybe: X
+乘法溢位
+short
+
+萬用暴解:temp data
