@@ -1,0 +1,3 @@
+UVa 10003 - Cutting Sticks
+UVa 10912 - Simple Minded Hashing
+UVa 11420 - Chest of Drawers

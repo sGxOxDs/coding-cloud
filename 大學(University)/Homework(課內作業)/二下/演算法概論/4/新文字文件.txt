@@ -1,0 +1,3 @@
+UVa 1213 - Sum of Different Primes
+UVa 10616 - Divisible Group Sum
+UVa 11566 - Let's Yum Cha!

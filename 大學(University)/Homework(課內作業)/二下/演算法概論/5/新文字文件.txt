@@ -1,0 +1,3 @@
+UVa 10827 - Maximum Sum on a torus
+UVa 11951 - Area
+UVa 10755 - Garbage Heap

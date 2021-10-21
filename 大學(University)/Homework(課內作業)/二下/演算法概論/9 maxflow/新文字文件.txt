@@ -1,0 +1,4 @@
+UVa 10330 - Power Transmission
+UVa 11380 - Down Went The Titanic
+UVa 11506 - Angry Programmer
+UVa 12125 - March of the Penguins

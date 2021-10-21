@@ -1,0 +1,3 @@
+UVa 00820 - Internet Bandwidth
+UVa 11418 - Clever Naming Patterns
+UVa 12873 - The Programmers

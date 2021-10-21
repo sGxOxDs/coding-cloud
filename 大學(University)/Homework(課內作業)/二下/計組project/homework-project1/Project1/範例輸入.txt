@@ -1,0 +1,6 @@
+add x2,x2,x23
+addi x24,x24,2
+L2: sw x1,0(x2)
+beq x0,x0,L1
+L1: add x2,x2,x23
+beq x0,x0,L2

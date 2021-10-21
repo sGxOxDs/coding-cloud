@@ -1,0 +1,22 @@
+跳過：
+6 Optimal replacement
+7 Linux without having to use locks
+8 page table
+11 15 33 47mem address bit
+12 mem (relocation)
+14 CS
+18 two versions of semaphores
+21 ch6-8 nonpreemptive kernel
+22 Banker's Algorithm
+26 number of entries in the TLB multiplied by the page size
+29 What is page buffering
+32 ch10  What is a lower bound on the number of page faults? 
+What is an upper bound on the number of page faults?
+35  wait-for graph
+36 spinlocks 
+38 snapshot
+39 The strategy is to bring into memory at one time all the pages that will be needed.
+40 page fault TLB miss
+46
+
+2 10

@@ -1,0 +1,2 @@
+UVa 10245 - The Closest Pair Problem
+UVa 11378 - Bey Battle
