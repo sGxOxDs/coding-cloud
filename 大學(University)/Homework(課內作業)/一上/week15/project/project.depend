@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1577932001 source:c:\users\asus\desktop\week15\1083339-week15.cpp
+	<iostream>
+	<iomanip>
+	<fstream>
+	<string.h>
+	<vector>
+
+1577934171 source:c:\users\asus\desktop\week15\project\1083339-week15.cpp
+	"function.h"
+
+1577934171 c:\users\asus\desktop\week15\project\function.h
+	<iostream>
+	<iomanip>
+	<fstream>
+	<string.h>
+	<vector>
+
+1577934859 source:c:\users\asus\desktop\week15\project\function.cpp
+	"function.h"
+

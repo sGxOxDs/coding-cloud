@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1577334943 source:c:\users\asus\desktop\week14\porject\week14\main.cpp
+	<iostream>
+	<stdlib.h>
+	<vector>
+	"matrix.h"
+
+1577335415 c:\users\asus\desktop\week14\porject\week14\matrix.h
+
+1577335315 source:c:\users\asus\desktop\week14\porject\week14\matrix.cpp
+	<vector>
+	<iostream>
+	<fstream>
+	<sstream>
+	"matrix.h"
+

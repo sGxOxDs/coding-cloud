@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">THSRsimulation</string>
+    <string name="HSR_time">高鐵時刻表</string>
+    <string name="hr">時</string>
+    <string name="min">分</string>
+    <string name="sec">秒</string>
+    <string name="qq">QQ</string>
+    <string name="data1">
+        13時12分 3489\n
+        13時45分 1089\n
+        14時15分 1879\n
+        14時55分 255
+    </string>
+    <string name="data2">
+        15時25分 749\n
+        15時40分 1354\n
+        16時05分 948\n
+        16時43分 460
+    </string>
+    <string name="data3">
+        17時16分 681\n
+        17時44分 1654\n
+        18時18分 3349\n
+        18時39分 359
+    </string>
+    <string name="data_order">
+        \n
+        班次:\n
+        起點:\n
+        終點:\n
+        位置:\n
+        票種:\n
+        數量:\n
+    </string>
+    <string name="After_order">
+        \n
+        預計車程:\n
+        總計票價:\n
+    </string>
+    <string name="paydone">
+        \t付款成功\n
+        下面是您的LinePay專屬乘車證\n
+    </string>
+    <string name="linepay">使用linepay</string>
+    <string name="next">更晚班次</string>
+    <string name="previous">更早班次</string>
+    <string name="todo">TODO</string>
+    <string name="time_web">真實時刻表</string>
+    <string name="home">回到主頁</string>
+    <string name="back">上一頁</string>
+    <string name="true_order">真實訂票</string>
+    <string name="HSR_order">模擬訂票</string>
+    <string name="order">訂票</string>
+</resources>

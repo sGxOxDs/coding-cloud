@@ -1,0 +1,114 @@
+
+<html>
+	<head>
+		<title>elements</title>
+	</head>
+	<script language="javascript">
+
+		var turn = 0;
+		var size =5;
+
+		var a = new Array(size);
+
+		for(var i = 0; i < size; i++)
+			a[i] = new Array(size);
+
+		var e2;
+		var tdc = 0;
+		var td = [];
+		function put(event)
+		{
+			if ((typeof event == "undefined")||(!event))
+				event = window.event;
+			var e1 = event.target || event.srcElement;
+			e1.bgColor = "#ffffff";
+
+			var x = e1.id.substring(0, 1);
+			var y = e1.id.substring(1, 2);
+			
+			//e1.innerHTML= ""+e1.id;
+			var y1,y2,x1,x2;
+			y1=eval(y)+1;
+			y2=eval(y)-1;
+			x1=eval(x)+1;
+			x2=eval(x)-1;
+			
+			if( e2 )
+			{
+				if( e2.id == ""+x1+y || e2.id == ""+x2+y || e2.id == ""+x+y1 || e2.id == ""+x+y2)
+				{
+					var temp_name = e1.name;
+					e1.name = e2.name;
+					e2.name = temp_name;
+					e1.innerHTML = e1.name;
+					e2.innerHTML = e2.name;
+					for(var i=0;i<tdc;i++)
+						document.getElementById(td[i]).bgColor = "#eeeeee";
+					tdc=0;
+					e2.bgColor = "#eeeeee";
+				}
+				e2 = null;
+			}
+			else
+			{
+				if(e1.innerHTML == "")
+				{
+					e2=e1;
+					if(x1<size)
+						td[tdc++]=""+x1+y;
+					if(x2>=0)
+						td[tdc++]=""+x2+y;
+					if(y1<size)
+						td[tdc++]=""+x+y1;
+					if(y2>=0)
+						td[tdc++]=""+x+y2;
+					for(var i=0;i<tdc;i++)
+						document.getElementById(td[i]).bgColor = "#dddddd";
+				}
+			}
+				
+		}
+			
+			
+			
+
+
+		function init()
+		{
+		    var table = document.createElement("TABLE");
+		    document.body.appendChild(table);
+		    table.border = "2";
+		    table.cellSpacing = "2";
+		    table.bgColor = "#eeeeee";
+		    table.align="center";	
+		   
+		    var x, y, num1=1;
+		   
+		    for(x=0;x<size;x++)
+		    {
+				r = table.insertRow(x);
+				for(y=0;y<size;y++)
+				{
+					c = r.insertCell(y);
+					c.width="50";
+					c.height="50";
+					c.name=num1;
+					num1++;
+					c.id = ""+x+y;
+					c.vAlign="center";
+					c.align="center";
+					c.onclick = put;
+					//c.innerHTML="aaa";
+					if(num1>=24)
+						c.name = "";
+					c.appendChild(document.createTextNode(c.name));
+				}
+		    }
+		}
+
+	</script>
+
+	<body onLoad="init()">
+
+	</body>
+</html>

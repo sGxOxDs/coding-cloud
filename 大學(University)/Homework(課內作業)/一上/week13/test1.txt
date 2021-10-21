@@ -1,0 +1,1 @@
+My main complaint with the Surface Pro is the incredibly lackluster battery life. Granted, this is a classic Intel x86 box we're talking about, not some efficient ARM system-on-a-chip designed to run on a tiny battery. Still, I was hopeful that the first Surface Pro with Haswell inside would produce giant gains in battery life as Intel promised.

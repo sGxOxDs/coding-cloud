@@ -1,0 +1,13 @@
+Order number: S994073215
+Delivery Date: 2019/12/22
+Arrival Date: 2/3/5
+Recipient: 999
+Contact Phone Number: 999
+Shipping address: 999
+
+Shopping details:
+
+  Code                                              Item Price  Quantity  Subtotal
+     2   Steamed Vegetable and Ground Pork Dumplings (8)   176        23      4048
+
+Total Cost: 4048

@@ -1,0 +1,246 @@
+<html>
+
+  <head>
+    <title>Roulette Wheel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=0.60, minimum-scale=0.60, maximum-scale=0.60">
+	<link rel="stylesheet" type="text/css" href="test.css">
+
+    <script type="text/javascript">
+document.onmousemove = handleClick;
+const POSTERS_PER_ROW = 37;
+const RING_RADIUS = 300;
+var NumOfTurns = [];		//每次旋轉基底圈數(角度)
+	NumOfTurns[0] = 720;
+	NumOfTurns[1] = 720;
+	NumOfTurns[2] = 720;
+var mouseX;
+var mouseY;
+var lock = 1;				//輪盤鎖 1:locked;	0:unlock
+var mX;						//滑鼠X軸移動量
+var mY;						//滑鼠Y軸移動量
+var TotalRotation = [];		//目前總旋轉角度
+	TotalRotation[0] = 0;
+	TotalRotation[1] = 0;
+	TotalRotation[2] = 0;
+var direction=0; 			//0:逆順時針;	1:順時針
+var randNum = [];			//隨機產生的數字 亦即每局輪盤開出數字
+	randNum[0] = -1;
+	randNum[1] = -1;
+	randNum[2] = -1;
+var colorRestore = [];		//紀錄輪盤上的每個數字顏色
+	colorRestore[0] = [];
+	colorRestore[1] = [];
+var ColorOfNum = [];		//紀錄賭盤上每個格子的顏色
+var betRecord = [];			//下注紀錄表(位置/金額)
+var money = 0; 				//籌碼金額
+var toltalMoney = [];		//總金額
+	toltalMoney[0] = 1000;
+var LockOfTable = 0; 		//賭盤鎖
+var BettingOdds = [];
+var NumOfPlayer = 0;
+var TotalPlayers = 0;
+var Translation = 0;
+
+function setup (row , k)
+{
+	var posterAngle = 360 / POSTERS_PER_ROW;
+	for (var i = 0; i < POSTERS_PER_ROW; i ++) 
+	{
+		var poster = document.createElement('div');
+		poster.className = 'poster';
+		var transform = 'rotateY(' + (posterAngle * i) + 'deg) rotateZ(-90deg) translateZ(' + RING_RADIUS + 'px)';
+		poster.style.webkitTransform = transform;
+		var content = poster.appendChild(document.createElement('p'));
+		content.textContent = i;
+		row.appendChild(poster);
+	}
+	document.getElementById('ring'+k).getElementsByClassName("poster")[0].style.backgroundColor="#689F38";
+		
+	for(i=1;i<POSTERS_PER_ROW;i++)				//set color
+	{
+		var PosStyle = document.getElementById('ring'+k).getElementsByClassName("poster")[i].style ;
+		if(i<=10 || i>=19 && i<=28)
+		{
+			if(i%2==1)
+			{
+				PosStyle.backgroundColor="#f44336" ;
+				PosStyle.color = "black";
+			}
+			else if(i%2==0)
+			{
+				PosStyle.backgroundColor="#212121" ;
+				PosStyle.color = "white";
+			}
+			//else if(i>10 && i<)*/
+		}
+		
+	}
+	for(i=0 ;i< POSTERS_PER_ROW;i++)
+	{
+		document.getElementById('ring'+k).getElementsByClassName("poster")[i].onmousedown = function() {Drag();};
+	}
+	
+}
+	
+function init ()
+{
+	for(var k=0;k<3;k++)
+		setup(document.getElementById('ring'+k),k);
+}
+
+      // call init once the document is fully loaded
+      window.addEventListener('load', init, false);
+	  
+function Rotate()
+{
+	
+	if(lock == 1)return;
+	for(k=0;k<3;k++)
+		RestoreColor(k);
+	for(k=0;k<3;k++)
+	{
+		for(i=0 ;i< POSTERS_PER_ROW;i++)
+		{
+			document.getElementById('ring'+k).getElementsByClassName("poster")[i].onmousedown = function() {};
+		}	
+		var Angle = 360/POSTERS_PER_ROW;
+		randNum[k] = Math.floor((Math.random() * 37));
+		if(direction==1 )
+		{
+			NumOfTurns[k]-=1440;
+			if(Angle*randNum[k] >0)
+				Angle*= -1;
+		}
+				
+		var x = NumOfTurns[k] + Angle*randNum[k]; //旋轉角度 = 已旋轉角度+兩圈+隨機角度;
+		if(direction==0 && randNum[k] != 0)
+			randNum[k] = 37 - randNum[k];
+		document.getElementById('ring'+k).style.transition="all 5s";  
+		document.getElementById('ring'+k).style.transitionTimingFunction = "ease-out";
+		if(direction>0)
+			document.getElementById('ring'+k).style.webkitTransform="rotateY("+ (x+Angle) +"deg)";//旋轉
+		else
+			document.getElementById('ring'+k).style.webkitTransform="rotateY("+ (x-Angle) +"deg)";//旋轉
+		NumOfTurns[k]+=720;
+		TotalRotation[k] = x;
+		lock = 1;
+		colorRestore[0][k] = document.getElementById('ring'+k).getElementsByClassName("poster")[randNum[k]].style.backgroundColor;
+		colorRestore[1][k] = randNum[k];
+		LockOfTable = 1; //賭盤上鎖 禁止下注
+		ChangeColor(k);	  
+		//document.getElementById('num').innerHTML = randNum; //(TotalRotation%360)/Angle;
+	}
+}
+
+function ChangeColor(k)	  
+{
+	window.setTimeout(function()
+	{
+		for(i=0 ;i< POSTERS_PER_ROW;i++)
+		{
+			document.getElementById('ring'+k).getElementsByClassName("poster")[i].onmousedown = function() {Drag();};
+		}		
+		var obj = document.getElementById('ring'+k).getElementsByClassName("poster")[randNum[k]];
+		obj.style.transition = "all 0.5s";
+		obj.style.backgroundColor="#FBC02D" ;
+		obj.style.color = "black";		
+
+		//alert(LockOfTable);
+	},5300);
+	window.setTimeout(function()
+	{		
+		LockOfTable = 0; //輪盤已停轉，解開下注鎖
+	
+	
+	},5800);
+	
+}
+
+function RestoreColor(k)
+{
+	if(randNum[k] != -1)
+	{
+		document.getElementById('ring'+k).getElementsByClassName("poster")[colorRestore[1][k]].style.backgroundColor = colorRestore[0][k];
+		//alert("enter");
+		if(colorRestore[1][k]%2 == 0)
+		{
+			if( colorRestore[1][k]<=10 || colorRestore[1][k]<=29 && colorRestore[1][k]>=19)
+				document.getElementById('ring'+k).getElementsByClassName("poster")[colorRestore[1][k]].style.color ="white";
+		}	
+		else if(colorRestore[1][k]%2 == 1)
+		{
+			if(colorRestore[1][k]>=11&&colorRestore[1][k]<=18 || colorRestore[1][k]>=29 && colorRestore[1][k]<=36)
+				document.getElementById('ring'+k).getElementsByClassName("poster")[colorRestore[1][k]].style.color ="white";
+		}
+	}
+	
+}	
+function Drag()
+{
+	mX = mouseX;
+	mY = mouseY;
+	//document.onmousemove = move(mX,mY)
+	 //Math.sqrt(Math.pow(mouseX-mX,2)+Math.pow(mouseY-mY,2));
+	
+	
+	lock = 0;		//轉盤解鎖
+	
+	document.getElementById('back').onmouseup = function() {Rotate();};
+		//document.getElementById('back').onmouseover = function() {Rotate();};	
+		
+}
+	
+function handleClick(e)
+{
+		//if(lock == 1)return;
+	if ((typeof e == "undefined")||(!e))
+		e = window.event;
+	mouseX = e.clientX;
+	mouseY = e.clientY;
+
+	//document.getElementById("button").innerHTML = mouseX+","+mouseY;
+	if(lock==0)
+	{
+		for(k=0;k<3;k++)
+		{
+			document.getElementById('ring'+k).style.transition="";
+				
+			var Distance = mouseY-mY; //Distance/20
+			if(Distance<0) 			//往左滑
+				direction = 1;
+			else  					//往右滑
+				direction = 0;
+			var x = Distance/20+TotalRotation[k];
+			document.getElementById('ring'+k).style.webkitTransform="rotateY("+ x +"deg)";
+			//Distance+=TotalRotation;
+		}		
+	}
+}
+
+
+document.onclick = handleClick;
+
+    </script>
+	
+  </head>
+  
+  <body onselectstart="return false;" ondragstart="return false;">
+  
+
+    <div id="back">
+		
+		
+	<div id="stage">
+		<div id="rotate" style="transform:rotateX(0deg) rotateY(0deg) rotateZ(90deg);">
+		<div id="ClickToRotate"></div>
+        <div id="ring0" class="ring"></div>
+		<div id="ring1" class="ring"></div>
+		<div id="ring2" class="ring"></div>
+		
+    </div>
+	</div>
+	</div>
+  </body>
+  
+</html>
