@@ -1,0 +1,8 @@
+Warning (10268): Verilog HDL information at final.v(309): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at final.v(156): object "VGA_R" differs only in case from object "vga_r" in the same scope
+Info (10281): Verilog HDL Declaration information at final.v(157): object "VGA_G" differs only in case from object "vga_g" in the same scope
+Info (10281): Verilog HDL Declaration information at final.v(158): object "VGA_B" differs only in case from object "vga_b" in the same scope
+Info (10281): Verilog HDL Declaration information at final.v(154): object "VGA_HS" differs only in case from object "vga_hs" in the same scope
+Info (10281): Verilog HDL Declaration information at final.v(155): object "VGA_VS" differs only in case from object "vga_vs" in the same scope
+Warning (10268): Verilog HDL information at dvin.v(36): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at dvin.v(54): always construct contains both blocking and non-blocking assignments
