@@ -1,0 +1,78 @@
+<html>
+	<head>
+	</head>
+	<script>
+		function showtime(){
+			time=new Date();
+			secs=time.getSeconds();
+			mins=time.getMinutes();
+			hrs=time.getHours();
+			year=time.getYear()+1900;
+			month=time.getMonth();
+			month=month+1;
+			day=time.getDate();
+			
+			for(i=0;i<r/1;i+=5){
+				x1=x+i*Math.cos(((secs)/60*360+90)*-(Math.PI/180));
+				y1=y+i*Math.sin(((secs)/60*360+90)*-(Math.PI/180));
+				document.getElementById('as'+i).style.top=y1;
+				document.getElementById('as'+i).style.left=x1;
+			}
+			for(i=0;i<r/1.5;i+=5){
+				x1=x+i*Math.cos(((mins)/60*360+90)*-(Math.PI/180));
+				y1=y+i*Math.sin(((mins)/60*360+90)*-(Math.PI/180));
+				document.getElementById('am'+i).style.top=y1;
+				document.getElementById('am'+i).style.left=x1;
+			}
+			for(i=0;i<r/3;i+=5){
+				x1=x+i*Math.cos(((hrs)/12*360+90)*-(Math.PI/180));
+				y1=y+i*Math.sin(((hrs)/12*360+90)*-(Math.PI/180));
+				document.getElementById('ah'+i).style.top=y1;
+				document.getElementById('ah'+i).style.left=x1;
+			}
+			
+			
+			
+		}
+		/*	圓形
+			r：半徑
+			radian = 角度*(Math.PI/180);
+			x = r*Math.cos(radian);
+			y = r*Math.sin(radian);*/
+		var r = 200;
+		var x=200,y=200;
+		/*for(i=0;i<360;i+=6){
+			x1=x+250+(r*0.5)*Math.cos((i+180)*(Math.PI/180));
+			y1=y-100+(r*0.5)*Math.sin((i+180)*(Math.PI/180));
+			document.writeln("<div id='s"+i/6+"' style='position:absolute;top:"+x1+";left:"+y1+";width:10;height:10;transform: rotate("+-(i)+");font-size:5px'>"+i/6+"</div>");
+		}
+		for(i=0;i<360;i+=6){
+			x1=x+250+(r*0.5)*Math.cos((i+180)*(Math.PI/180));
+			y1=y+150+(r*0.5)*Math.sin((i+180)*(Math.PI/180));
+			document.writeln("<div id='m"+i/6+"' style='position:absolute;top:"+x1+";left:"+y1+";width:10;height:10;transform: rotate("+-(i)+");font-size:5px'>"+i/6+"</div>");
+		}*/
+		for(i=0;i<360;i+=30){
+			x1=x+(r*1)*Math.cos((i+210)*(Math.PI/180));
+			y1=y+(r*1)*Math.sin((i+210)*(Math.PI/180));
+			document.writeln("<div id='h"+i/30+"' style='position:absolute;top:"+x1+";left:"+y1+";width:25;height:25;background:#ffffff;transform: rotate("+-(i)+");font-size:20px'>"+(i/30+1)+"</div>");
+		}
+		for(i=0;i<r/3;i+=5){
+			x1=x+i*Math.cos(90*(Math.PI/180));
+			y1=y+i*Math.sin(90*(Math.PI/180));
+			document.writeln("<div id='ah"+i+"' style='position:absolute;top:"+x1+";left:"+y1+";width:3;height:3;background:red;font-size:1px'></div>");
+		}
+		for(i=0;i<r/1.5;i+=5){
+			x1=x+i*Math.cos(90*(Math.PI/180));
+			y1=y+i*Math.sin(90*(Math.PI/180));
+			document.writeln("<div id='am"+i+"' style='position:absolute;top:"+x1+";left:"+y1+";width:3;height:3;background:red;font-size:1px'></div>");
+		}
+		for(i=0;i<r/1;i+=5){
+			x1=x+i*Math.cos(90*(Math.PI/180));
+			y1=y+i*Math.sin(90*(Math.PI/180));
+			document.writeln("<div id='as"+i+"' style='position:absolute;top:"+x1+";left:"+y1+";width:3;height:3;background:red;font-size:1px'></div>");
+		}
+		run1 = window.setInterval("showtime()" , 50);
+	</script>
+	<body style="background:#000000;">
+	</body>
+</html>

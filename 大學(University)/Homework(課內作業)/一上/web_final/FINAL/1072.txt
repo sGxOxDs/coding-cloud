@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<script>
+			var k=1;
+			var x_v=[],y_v=[];
+				x_v[1]=200,y_v[1]=440;
+				x_v[2]=200,y_v[2]=440;
+				x_v[3]=200,y_v[3]=440;
+			
+			var x_m=[],y_m=[];
+				x_m[1]=2,y_m[1]=-2;
+				x_m[2]=3,y_m[2]=-3;
+				x_m[3]=3,y_m[3]=-2;
+			
+			var xsize=6,ysize=3;
+			var Tx,Ty;
+			var dx,dy;
+			var Hits=new Array();
+			for(var i = 0; i < xsize; i++)
+				Hits[i] = new Array(xsize);
+
+			function getdiv(id1,x2,y2,w2,h2,color2)
+			{
+				var newElement = document.createElement('div');
+				newElement.id = id1;
+				newElement.style.position="absolute";
+				newElement.style.top  = y2;
+				newElement.style.left = x2;
+				newElement.style.width  = w2;
+				newElement.style.height = h2;
+				newElement.style.background = color2;
+				newElement.style.visibility = "visible";
+				document.body.appendChild(newElement);
+			}
+
+			function handleClick(e)
+			{
+				if ((typeof e == "undefined")||(!e))
+					e = window.event;
+				var mouseX = e.clientX;
+				var mouseY = e.clientY;
+				if( mouseX>=0 && mouseX<=500 )//限制版子位置
+					document.getElementById("div1").style.left = mouseX-50;
+			}
+
+			function move()
+			{
+				x_v[k]+=x_m[k];
+				y_v[k]+=y_m[k];
+
+				if( x_v[k]<0 || x_v[k]>490 )
+					x_m[k] = -x_m[k];
+				if( y_v[k]<0 || y_v[k]>490 )
+					y_m[k] = -y_m[k];
+
+				//document.getElementById("div1").innerhtml=x_v[k]+","+y_v[k];
+				Tx=Math.floor(x_v[k]/50);
+				Ty=Math.floor(y_v[k]/30);
+				if( Tx<xsize && Ty<ysize ) //與磚塊碰撞
+				{
+					if(Tx<0)
+						Tx=0;
+					if(Ty<0)
+						Ty=0;
+					if(document.getElementById("B"+Tx+Ty).style.visibility=="visible")
+					{
+						if(Math.floor((y_v[k]+14)/30)-Ty>0)
+							y_m[k] = Math.abs(y_m[k]);
+						else
+							y_m[k] = -Math.abs(y_m[k]);
+							
+						if(Math.floor((x_v[k]+24)/50)-Tx>0)
+							x_m[k] = Math.abs(x_m[k]);
+						else
+							x_m[k] = -Math.abs(x_m[k]);
+						Hits[Tx][Ty]++;
+						document.getElementById("B"+Tx+Ty).style.visibility="hidden";
+					}
+				}
+				dx = parseInt(document.getElementById("div1").style.left)+50;//版子x中心(+-50)
+				dy = parseInt(document.getElementById("div1").style.top)+10;//版子y中心(+-10)
+				if ((x_v[k]<dx+50 && x_v[k]>dx-55) && (y_v[k]<dy+10 && y_v[k]>dy-15)) //與版子碰撞
+				{
+					if(y_v[k]-dy>0)
+						y_m[k] = Math.abs(y_m[k]);
+					else
+						y_m[k] = -Math.abs(y_m[k]);
+						
+					if(x_v[k]-dx>0)
+						x_m[k] = Math.abs(x_m[k]);
+					else
+						x_m[k] = -Math.abs(x_m[k]);
+				}
+
+				document.getElementById('ball'+k).style.left=x_v[k];
+				document.getElementById('ball'+k).style.top=y_v[k];
+				
+				if(++k>3)
+					k=1;
+			}
+
+			function init()
+			{
+				getdiv("frame1",0,0,500,500,"blue");
+				getdiv("div1",100,450,100,20,"red");
+				getdiv("ball1",200,200,10,10,"yellow");
+				getdiv("ball2",200,200,10,10,"yellow");
+				getdiv("ball3",200,200,10,10,"yellow");
+
+				for(x=0;x<xsize;x++)
+					for(y=0;y<ysize;y++,Hits[x][y]=0)
+						getdiv("B"+x+y,x*80,y*30,78,28,"yellow");
+
+				document.onmousemove = handleClick;
+
+				run1 = window.setInterval("move()" , 4);
+			}
+		</script>
+	</head>
+	
+	<body onload=init();>
+	</body>
+</html>
